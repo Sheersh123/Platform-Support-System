@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import json
 from datetime import datetime
 
@@ -13,3 +14,7 @@ def log_event(service, level, message):
 
     with open(LOG_FILE, "a") as f:
         f.write(json.dumps(log) + "\n")
+=======
+def log_event(service, level, message):
+    print(f"[{level}] [{service}] {message}")
+>>>>>>> ee85057b8f0633b77ec646cf03c5bb5302420425
