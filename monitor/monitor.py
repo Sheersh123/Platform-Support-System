@@ -23,27 +23,11 @@ def monitor_services():
                 latency = time.time() - start
                 metrics[name]["total"] += 1
                 metrics[name]["latencies"].append(latency)
-
                 if response.status_code == 200:
                     metrics[name]["uptime"] += 1
                 else:
                     metrics[name]["errors"] += 1
-
             except Exception as e:
                 metrics[name]["total"] += 1
                 metrics[name]["errors"] += 1
-
                 log_event(name, "CRITICAL", f"Service unreachable: {str(e)}")
-      
-        incidents = detect_incidents(metrics)
-        for service, issue, severity in incidents:
-            print(f" INCIDENT → {service} | {issue} | {severity}")
-            log_event(service, severity, issue)
-            send_alert(service, issue, severity)
-            success = recover(service, issue)
-            if success:
-                log_event(service, "INFO", "Recovery successful")
-            else:
-                log_event(service, "WARNING", "Recovery failed")
-
-        time.sleep(5)
