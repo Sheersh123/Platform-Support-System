@@ -11,8 +11,10 @@ def detect_incidents(metrics):
         )
         if error_rate == 1:
             incidents.append((service, "Service Down", "CRITICAL"))
+                             
         elif error_rate > 0.5:
             incidents.append((service, "High Error Rate", "HIGH"))
         elif avg_latency > 1:
             incidents.append((service, "High Latency", "MEDIUM"))
+
     return incidents
