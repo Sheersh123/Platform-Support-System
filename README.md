@@ -1,7 +1,6 @@
 # Platform Support System
 
-## Banner
-![Platform Support System Banner](https://example.com/banner-image.png)
+
 
 ## Architecture
 The Platform Support System is designed as a modular architecture with the following components:
