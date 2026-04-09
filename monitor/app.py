@@ -8,6 +8,9 @@ def start_monitor():
     thread = threading.Thread(target=monitor_services)
     thread.daemon = True
     thread.start()
+@app.get("/health")
+def health():
+    return {"status": "ok"}
 @app.get("/metrics")
 def get_metrics():
     result = {}
