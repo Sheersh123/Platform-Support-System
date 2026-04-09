@@ -1,7 +1,7 @@
 import requests
 import time
 from .incident_engine import detect_incidents
-from alert import send_alert
+from .alert import send_alert
 from recovery import recover
 from logger import log_event
 SERVICES = {
