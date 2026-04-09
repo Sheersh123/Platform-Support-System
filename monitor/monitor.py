@@ -2,8 +2,8 @@ import requests
 import time
 from .incident_engine import detect_incidents
 from .alert import send_alert
-from recovery import recover
-from logger import log_event
+from .recovery import recover
+from .logger import log_event
 SERVICES = {
     "service_a": "http://localhost:8001/health",
     "service_b": "http://localhost:8002/health",
