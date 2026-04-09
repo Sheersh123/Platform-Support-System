@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from monitor import metrics, monitor_services
+from monitor.monitor import metrics, monitor_services
 import statistics
 import threading
 app = FastAPI()
